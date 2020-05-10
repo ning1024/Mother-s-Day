@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>母亲节快乐</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+	<style type="text/css" media="screen">
+		*{margin: 0;padding: 0}
+		.btn{
+			width: 100px;
+			height: 30px;
+			border-radius: 10px;
+			border-style: none;
+			background-color: rgb(31,200,253);
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			position:absolute;
+			top: 260px;
+			left:650px;
+		}
+		.details{
+			display: none;
+			width: 500px;
+			margin: 2.666667rem auto;
+		}
+		h1{
+			color:white;
+		    font-size: 50px;
+		    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 50px #ff00de, 0 0 150px #ff00de;
+		    display: inline-block;
+			animation:mysecond 250ms;
+			-moz-animation:mysecond 250ms; /* Firefox */
+			-webkit-animation:mysecond 250ms; /* Safari and Chrome */
+			-o-animation:mysecond 250ms; /* Opera */
+		}
+		@keyframes mysecond
+		{
+			0%   {transform: rotate(0deg);color:red;}
+			25%  {transform: rotate(90deg);color:yellow;}
+			50%  {transform: rotate(180deg);color:blue;}
+			75%  {transform: rotate(270deg);color:green;}
+			100% {transform: rotate(360deg);color:pink;}
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<input type="button" name="btn" value="点我点我" class="btn">
+		<div class="details">
+			<h1>老妈，母亲节快乐！！</h1>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.btn').on('click',function(e){
+				$('.details').css('display','block');
+			});
+		})
+	</script>
+</body>
+</html>
