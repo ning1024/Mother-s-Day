@@ -1,64 +1,151 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>母亲节快乐</title>
-	<meta charset="utf-8">
-	<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
-	<style type="text/css" media="screen">
-		*{margin: 0;padding: 0}
-		.btn{
-			width: 35.333333rem;
-			height: 13.333333rem;
-			border-radius: 5.266667rem;
-			border-style: none;
-			background-color: rgb(31,200,253);
-			color: #fff;
-			display: flex;
-			justify-content: center;
-			font-size: 4.8rem;
-			/*margin: 0 auto;*/
-			position: absolute;
-			top: 17.333333rem;
-			left: 11.533333rem;
-		}
-		.details{
-			display: none;
-			width: 500px;
-			margin: 2.666667rem auto;
-		}
-		h1{
-			color:white;
-		    font-size: 50px;
-		    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 50px #ff00de, 0 0 150px #ff00de;
-		    display: inline-block;
-			animation:mysecond 250ms;
-			-moz-animation:mysecond 250ms; /* Firefox */
-			-webkit-animation:mysecond 250ms; /* Safari and Chrome */
-			-o-animation:mysecond 250ms; /* Opera */
-		}
-		@keyframes mysecond
-		{
-			0%   {transform: rotate(0deg);color:red;}
-			25%  {transform: rotate(90deg);color:yellow;}
-			50%  {transform: rotate(180deg);color:blue;}
-			75%  {transform: rotate(270deg);color:green;}
-			100% {transform: rotate(360deg);color:pink;}
-		}
-	</style>
-</head>
-<body>
-	<div id="content">
-		<input type="button" name="btn" value="点我点我" class="btn">
-		<div class="details">
-			<h1>老妈，母亲节快乐！！</h1>
+	<head>
+		<title>母亲节快乐</title>
+		<meta charset='utf-8'/>
+		<style>
+			.main{
+				width:1000px;
+				height:800px;
+				margin:0 auto;
+			}
+			img{
+				display:inline-block;
+				position:relative;
+				left:442px;
+			}
+			#div1,#div2,#div3,#div4,#div5{
+				width:100px;
+				height:100px;
+				display=inline-block;
+				border-radius:50%;
+				text-align:center;
+				line-height:100px;
+				font-family:'黑体';
+				font-size:30px;
+			}
+			#div1{
+				border:3px solid red;
+				position:absolute;
+				top:-110;
+				color:red;
+			}
+			#div2{
+				border:3px solid orange;
+				position:absolute;
+				top:-110;
+				margin-left:200px;
+				color:orange;
+			}
+			#div3{
+				border:3px solid yellow;
+				position:absolute;
+				top:-110;
+				margin-left:400px;
+				color:yellow;
+			}
+			#div4{
+				border:3px solid green;
+				position:absolute;
+				top:-110;
+				margin-left:600px;
+				color:green;
+			}
+			#div5{
+				border:3px solid indigo;
+				position:absolute;
+				top:-110;
+				margin-left:800px;
+				color:indigo;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='main'>
+			<div id="boxes">
+				<div id='div1' name="aa">母</div>
+				<div id="div2" name="bb">亲</div>
+				<div id="div3" name="cc">节</div>
+				<div id="div4" name="dd">快</div>
+				<div id="div5" name="ee">乐</div>
+			</div>
+			
+			<div id="carousel">
+				<div id="tabpic">
+					<div style="display:block;">
+						<img src="./3.png" class="img3" />
+					</div>
+					<div style="display:none;">
+						<img src="./2.png" class="img2"/>
+					</div>
+					<div style="display:none;">
+						<img src="./1.png" class="img1"/>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<script type="text/javascript">
-		$(function(){
-			$('.btn').on('click',function(e){
-				$('.details').css('display','block');
-			});
-		})
-	</script>
-</body>
+		<script>
+			var boxes = document.getElementById("boxes");
+			var tabPicArr=document.getElementById("tabpic").getElementsByTagName("div");
+			var carousel = document.getElementById("carousel");
+			
+			var aa = document.getElementsByName("aa")[0];
+			var bb = document.getElementsByName("bb")[0];
+			var cc = document.getElementsByName("cc")[0];
+			var dd = document.getElementsByName("dd")[0];
+			var ee = document.getElementsByName("ee")[0];
+			
+			function div_tab(tabName){
+				for(var i=0;i<tabPicArr.length;i++){
+		            if(i==tabName){
+		                tabPicArr[i].style.display="block";
+		            } else{
+		                tabPicArr[i].style.display="none";
+		            }
+		        }
+			}
+			var i=1;
+		    function auto_tab_div(){
+				//如果切換到最後一張圖片則重新從第一張開始
+				if(i>2){
+					carousel.style.display="none";
+				}
+				//每兩秒自動讀取下一張圖片
+				div_tab(i);
+				i++;
+		    }
+		    var interval = setInterval("auto_tab_div()",1000);
+		    // setInterval("auto_tab_div()",1000);
+		    interval = setInterval("auto_tab_div()",1000);
+		    window.clearInterval(interval );//停止
+			
+			window.onload = startFunction;
+			function startFunction(){
+				setTimeout(function(){
+					myFunction();
+				},3000);
+			}
+			
+			function myFunction(){
+				aa.style.position="absolute";
+				aa.style.top="100px";
+				aa.style.transition="all 3s ease";
+				
+				bb.style.position="absolute";
+				bb.style.top="100px";
+				bb.style.transition="all 4s ease";
+				
+				cc.style.position="absolute";
+				cc.style.top="100px";
+				cc.style.transition="all 2s ease";
+				
+				dd.style.position="absolute";
+				dd.style.top="100px";
+				dd.style.transition="all 1.5s ease";
+				
+				ee.style.position="absolute";
+				ee.style.top="100px";
+				ee.style.transition="all 2.5s ease";
+			}
+		</script>
+	</body>
 </html>
